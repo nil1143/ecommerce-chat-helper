@@ -95,7 +95,7 @@ async function createVectorSearchIndex(): Promise<void> {
 async function generateSyntheticData(): Promise<Item[]> {
   const prompt = `You are a helpful assistant that generates furniture store item data. Generate 10 furniture store items. Each record should include the following fields: item_id, item_name, item_description, brand, manufacturer_address, prices, categories, user_reviews, notes. Ensure variety in the data and realistic values.
 
-  ${parser.getFormatInstructions()}`; 
+  ${parser.getFormatInstructions()}`;
 
   console.log("Generating synthetic data...");
 
@@ -143,8 +143,8 @@ async function seedDatabase(): Promise<void> {
 
     const recordsWithSummaries = await Promise.all(
       syntheticData.map(async (record) => ({
-        pageContent: await createItemSummary(record), 
-        metadata: { ...record }, 
+        pageContent: await createItemSummary(record),
+        metadata: { ...record },
       }))
     );
 
